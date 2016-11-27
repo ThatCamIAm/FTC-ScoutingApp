@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_scouting_sheet"
+    android:foregroundTint="#1ae508"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundTint="#1ae508"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Team Name +  Number"
+            android:id="@+id/textView"
+            android:textColor="#820c4d"
+            android:layout_marginTop="68dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autonomous Capabilities"
+            android:id="@+id/textView2"
+            android:textColor="#820c4d"
+            android:layout_marginTop="28dp"
+            android:layout_below="@+id/teamNumberTxt"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/teamNumberTxt"
+            android:layout_marginTop="34dp"
+            android:singleLine="true"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beacon Activation"
+            android:id="@+id/AubeaconActivation"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true"
+            android:singleLine="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Move Cap Ball"
+            android:id="@+id/AuMovedCapBall"
+            android:singleLine="true"
+            android:layout_below="@+id/AuFullParking"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Particle In Center Vortex"
+            android:id="@+id/checkBoxAuCenter"
+            android:layout_below="@+id/AuMovedCapBall"
+            android:layout_alignParentStart="true"
+            android:singleLine="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/particlesInCenterTxt"
+            android:text="#"
+            android:layout_alignTop="@+id/checkBoxAuCenter"
+            android:layout_toEndOf="@+id/checkBoxAuCenter"
+            android:layout_marginStart="44dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Particle in Corner Vortex"
+            android:id="@+id/CheckBoxAuCorner"
+            android:layout_below="@+id/checkBoxAuCenter"
+            android:layout_alignParentStart="true"
+            android:singleLine="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/particlesInCornerVortexTxt"
+            android:layout_below="@+id/checkBoxAuCenter"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/particlesInCenterTxt"
+            android:text="#" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teleop Capabilities"
+            android:id="@+id/textView3"
+            android:textColor="#820c4d"
+            android:layout_below="@+id/particlesInCornerVortexTxt"
+            android:layout_centerHorizontal="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beacon Activation"
+            android:id="@+id/ToBeaconActivation"
+            android:layout_below="@+id/textView3"
+            android:layout_alignEnd="@+id/AubeaconActivation"
+            android:singleLine="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Particles In Center Vortex"
+            android:id="@+id/ToCenterParticles"
+            android:singleLine="true"
+            android:layout_below="@+id/ToBeaconActivation"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Particles In Corner Vortex"
+            android:id="@+id/ToCornerParticles"
+            android:layout_below="@+id/ToCenterParticles"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ToCapBallHeight"
+            android:spinnerMode="dropdown"
+            android:contextClickable="false"
+            android:entries="@+id/CapHeights"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/ToCornerParticles"
+            android:layout_below="@+id/ToCornerParticles" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cap Ball Scored In -"
+            android:id="@+id/TextView4"
+            android:textColor="#000000"
+            android:layout_below="@+id/ToCornerParticles"
+            android:layout_alignEnd="@+id/ToBeaconActivation" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partially Park in Corner or Side"
+            android:id="@+id/AuPartialParking"
+            android:layout_below="@+id/AubeaconActivation"
+            android:layout_alignParentStart="true"
+            android:singleLine="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fully Park in Corner or Side"
+            android:id="@+id/AuFullParking"
+            android:layout_below="@+id/AuPartialParking"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="READ NEXT"
+            android:singleLine="false"
+            android:id="@+id/readNextFileButton"
+            android:layout_below="@+id/textView3"
+            android:layout_toEndOf="@+id/textView2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear FIle"
+            android:id="@+id/ClearTeamDataButton"
+            android:layout_alignTop="@+id/AuMovedCapBall"
+            android:layout_alignEnd="@+id/particlesInCenterTxt" />
+
+    </RelativeLayout>
+</LinearLayout>
