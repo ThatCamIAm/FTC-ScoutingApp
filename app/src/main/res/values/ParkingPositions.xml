@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ParkingPositionsArray">
+        <item>No Specific position</item>
+        <item>Corner</item>
+        <item>Center</item>
+    </string-array></resources>

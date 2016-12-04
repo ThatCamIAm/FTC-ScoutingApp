@@ -63,7 +63,7 @@
             android:text="Move Cap Ball"
             android:id="@+id/AuMovedCapBall"
             android:singleLine="true"
-            android:layout_below="@+id/AuFullParking"
+            android:layout_below="@+id/parkingText"
             android:layout_alignParentStart="true" />
 
         <CheckBox
@@ -161,23 +161,6 @@
             android:layout_below="@+id/ToCornerParticles"
             android:layout_alignEnd="@+id/ToBeaconActivation" />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Partially Park in Corner or Side"
-            android:id="@+id/AuPartialParking"
-            android:layout_below="@+id/AubeaconActivation"
-            android:layout_alignParentStart="true"
-            android:singleLine="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fully Park in Corner or Side"
-            android:id="@+id/AuFullParking"
-            android:layout_below="@+id/AuPartialParking"
-            android:layout_alignParentStart="true" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -194,6 +177,25 @@
             android:id="@+id/ClearTeamDataButton"
             android:layout_alignTop="@+id/AuMovedCapBall"
             android:layout_alignEnd="@+id/particlesInCenterTxt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parkingText"
+            android:text="Parking Position"
+            android:layout_below="@+id/AubeaconActivation"
+            android:layout_toStartOf="@+id/textView2"
+            android:textColor="#010101" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:contextClickable="false"
+            android:entries="@+id/ParkingPositions"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@+id/particlesInCenterTxt"
+            android:id="@+id/SpinnerParkingPos" />
 
     </RelativeLayout>
 </LinearLayout>

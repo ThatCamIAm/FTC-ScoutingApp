@@ -132,7 +132,16 @@ public class ScoutingSheet extends AppCompatActivity {
 
         return ret;
     }
+    private String ReadParkingPos(int id) {
+        String ret;
+        String [] ParkingOptions = getResources().getStringArray(R.array.ParkingPositionsArray);
+        Spinner spin = (Spinner) findViewById(id);
+        int item = (int) spin.getSelectedItemId();
+        ret = ParkingOptions[item];
+        //ret = (String) String.valueOf(item);
 
+        return ret;
+    }
     public static int useLoop(String[] arr, String targetValue) {
         int i=0;
         for(String s: arr){
@@ -153,17 +162,22 @@ public class ScoutingSheet extends AppCompatActivity {
         spin.setSelection(itemid);
         //ret = (String) String.valueOf(item);
     }
-
+    private void SetParkingPos(int id, String value) {
+        int itemid;
+        value = value.trim();
+        String [] ParkingOptions = getResources().getStringArray(R.array.ParkingPositionsArray);
+        Spinner spin = (Spinner) findViewById(id);
+        itemid = useLoop(ParkingOptions,value);
+        spin.setSelection(itemid);
+        //ret = (String) String.valueOf(item);
+    }
     private void ClearGUIValues(){
         SetTextbox(R.id.teamNumberTxt, "");
 
         // StrAuBeaconActivation + ", " +
         SetCheckbox(R.id.AubeaconActivation, "False");
         //        StrAuPartialParking + ", " +
-        SetCheckbox(R.id.AuPartialParking, "False");
-
-        //        StrAuFullParking +", "+
-        SetCheckbox(R.id.AuFullParking, "False");
+        SetParkingPos(R.id.SpinnerParkingPos, "No Specific position");
         //      StrAuMovedCapBall + ", " +
         SetCheckbox(R.id.AuMovedCapBall, "False");
         //      StrAuCenter + ", "+
@@ -209,11 +223,9 @@ public class ScoutingSheet extends AppCompatActivity {
 
                 String StrAuBeaconActivation = ReadCheckbox(R.id.AubeaconActivation);
 
-                String StrAuPartialParking = ReadCheckbox(R.id.AuPartialParking);
-
                 String StrAuMovedCapBall = ReadCheckbox(R.id.AuMovedCapBall);
 
-                String StrAuFullParking = ReadCheckbox(R.id.AuFullParking);
+                String StrParkingPos =  ReadParkingPos(R.id.SpinnerParkingPos);
 
                 String StrAuCorner = ReadCheckbox(R.id.CheckBoxAuCorner);
 
@@ -233,8 +245,7 @@ public class ScoutingSheet extends AppCompatActivity {
 
                 String record = StrTeamNumber + ", " +
                         StrAuBeaconActivation + ", " +
-                        StrAuPartialParking + ", " +
-                        StrAuFullParking +", "+
+                        StrParkingPos + "," +
                         StrAuMovedCapBall + ", " +
                         StrAuCenter + ", "+
                         StrAuNumberPartCenterVortex  + ", " +
@@ -278,29 +289,25 @@ public class ScoutingSheet extends AppCompatActivity {
 
                     // StrAuBeaconActivation + ", " +
                     SetCheckbox(R.id.AubeaconActivation, values[idBaseOffset + 1]);
-                    //        StrAuPartialParking + ", " +
-                    SetCheckbox(R.id.AuPartialParking, values[idBaseOffset + 2]);
-
-                    //        StrAuFullParking +", "+
-                    SetCheckbox(R.id.AuFullParking, values[idBaseOffset + 3]);
+                    SetParkingPos(R.id.SpinnerParkingPos,values[idBaseOffset + 2]);
                     //      StrAuMovedCapBall + ", " +
-                    SetCheckbox(R.id.AuMovedCapBall, values[idBaseOffset + 4]);
+                    SetCheckbox(R.id.AuMovedCapBall, values[idBaseOffset + 3]);
                     //      StrAuCenter + ", "+
-                    SetCheckbox(R.id.checkBoxAuCenter, values[idBaseOffset + 5]);
+                    SetCheckbox(R.id.checkBoxAuCenter, values[idBaseOffset + 4]);
                     //      StrAuNumberPartCenterVortex  + ", " +
-                    SetTextbox(R.id.particlesInCenterTxt, values[idBaseOffset + 6]);
+                    SetTextbox(R.id.particlesInCenterTxt, values[idBaseOffset + 5]);
                     //      StrAuCorner + ", " +
-                    SetCheckbox(R.id.CheckBoxAuCorner, values[idBaseOffset + 7]);
+                    SetCheckbox(R.id.CheckBoxAuCorner, values[idBaseOffset + 6]);
                     //      StrAuNumberPartCornerVortex + ", "+
-                    SetTextbox(R.id.particlesInCornerVortexTxt, values[idBaseOffset + 8]);
+                    SetTextbox(R.id.particlesInCornerVortexTxt, values[idBaseOffset + 7]);
                     //      StrToBeaconActivation + ", " +
-                    SetCheckbox(R.id.ToBeaconActivation, values[idBaseOffset + 9]);
+                    SetCheckbox(R.id.ToBeaconActivation, values[idBaseOffset + 8]);
                     //      StrToCenterPart + ", " +
-                    SetCheckbox(R.id.ToCenterParticles, values[idBaseOffset + 10]);
+                    SetCheckbox(R.id.ToCenterParticles, values[idBaseOffset + 9]);
                     //      StrToCornerPart + ", " +
-                    SetCheckbox(R.id.ToCornerParticles, values[idBaseOffset + 11]);
+                    SetCheckbox(R.id.ToCornerParticles, values[idBaseOffset + 10]);
                     //StrCapBallHeight + ", ";
-                    SetCapBallHeight(R.id.ToCapBallHeight,values[idBaseOffset+12]);
+                    SetCapBallHeight(R.id.ToCapBallHeight,values[idBaseOffset+11]);
                 }
                 else {
                     ClearGUIValues();
